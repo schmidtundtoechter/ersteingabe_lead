@@ -1,0 +1,359 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{hfz}-{vornahme}-{zweiter_vornahme}-{nachnahme}",
+ "creation": "2024-12-10 15:42:25.192345",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kontakt_und_adresse_des_direkten_ansprechpartners_section",
+  "hfz",
+  "thema",
+  "leadquelle",
+  "position",
+  "column_break_zsbz",
+  "status_intern",
+  "geschlecht",
+  "anrede",
+  "titel",
+  "vornahme",
+  "zweiter_vornahme",
+  "nachnahme",
+  "kompletter_name",
+  "column_break_wjvd",
+  "abteilung",
+  "telefon",
+  "ist__haupttelefon",
+  "email_ansprechpartner",
+  "ist_hauptkontakt",
+  "ist_prim\u00e4rer_rechnungskontakt",
+  "adresse_des_direkten_ansprechpartners_section",
+  "adresse_zeile_1",
+  "adresse_zeile_2",
+  "ort_wohnort",
+  "land",
+  "plz",
+  "column_break_bwvy",
+  "select_wklm",
+  "ist_versandanschrift",
+  "kontaktinformation_section",
+  "email",
+  "webseite",
+  "column_break_ckgt",
+  "telefon_zentrale",
+  "column_break_sjyc",
+  "adresse_mutterunternehmen",
+  "kontakt_mutterunternehmen",
+  "firmendaten_section",
+  "select_lapl",
+  "wirtschaftsbranche",
+  "zus\u00e4tzliche_informationen_section",
+  "kampagnenname",
+  "drucksprache",
+  "column_break_ppez",
+  "deaktiviert",
+  "unsubscribed",
+  "blog_subscriber",
+  "test"
+ ],
+ "fields": [
+  {
+   "fieldname": "kontakt_und_adresse_des_direkten_ansprechpartners_section",
+   "fieldtype": "Section Break",
+   "label": "Kontakt des direkten Ansprechpartners"
+  },
+  {
+   "fieldname": "hfz",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Firma / Subunternehmen",
+   "reqd": 1
+  },
+  {
+   "fieldname": "thema",
+   "fieldtype": "Select",
+   "label": "Thema",
+   "options": "\nAZ-Allgmein Vorstellung\nIT-Sicherheit\nIT-L\u00f6sungen\nIT-Service & Support"
+  },
+  {
+   "fieldname": "leadquelle",
+   "fieldtype": "Select",
+   "label": "Lead-Quelle",
+   "options": "\nWebseite\nBusiness Development\nAquise-Projekt\nEmpfehlung"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position"
+  },
+  {
+   "fieldname": "column_break_zsbz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Lead",
+   "fieldname": "status_intern",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status Intern",
+   "options": "\nLead\nChance\nAngebot\nKunde\nOut"
+  },
+  {
+   "fieldname": "geschlecht",
+   "fieldtype": "Link",
+   "label": "Geschlecht",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "anrede",
+   "fieldtype": "Link",
+   "label": "Anrede",
+   "options": "Salutation"
+  },
+  {
+   "fieldname": "titel",
+   "fieldtype": "Data",
+   "label": "Titel"
+  },
+  {
+   "fieldname": "vornahme",
+   "fieldtype": "Data",
+   "label": "Vorname"
+  },
+  {
+   "fieldname": "zweiter_vornahme",
+   "fieldtype": "Data",
+   "label": "Zweiter Vorname"
+  },
+  {
+   "fieldname": "nachnahme",
+   "fieldtype": "Data",
+   "label": "Nachname"
+  },
+  {
+   "fieldname": "kompletter_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Kompletter Name"
+  },
+  {
+   "fieldname": "column_break_wjvd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "abteilung",
+   "fieldtype": "Data",
+   "label": "Abteilung"
+  },
+  {
+   "fieldname": "telefon",
+   "fieldtype": "Data",
+   "label": "Telefon"
+  },
+  {
+   "default": "1",
+   "fieldname": "ist__haupttelefon",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Ist  Haupttelefon"
+  },
+  {
+   "fieldname": "email_ansprechpartner",
+   "fieldtype": "Data",
+   "label": "Email Ansprechpartner"
+  },
+  {
+   "default": "0",
+   "fieldname": "ist_hauptkontakt",
+   "fieldtype": "Check",
+   "label": "Ist Hauptkontakt"
+  },
+  {
+   "default": "0",
+   "fieldname": "ist_prim\u00e4rer_rechnungskontakt",
+   "fieldtype": "Check",
+   "label": "Ist prim\u00e4rer Rechnungskontakt"
+  },
+  {
+   "fieldname": "adresse_des_direkten_ansprechpartners_section",
+   "fieldtype": "Section Break",
+   "label": "Adresse des direkten Ansprechpartners"
+  },
+  {
+   "fieldname": "adresse_zeile_1",
+   "fieldtype": "Data",
+   "label": "Adresse Zeile 1"
+  },
+  {
+   "fieldname": "adresse_zeile_2",
+   "fieldtype": "Data",
+   "label": "Adresse Zeile 2 "
+  },
+  {
+   "fieldname": "ort_wohnort",
+   "fieldtype": "Data",
+   "label": "Ort/ Wohnort"
+  },
+  {
+   "default": "Germany",
+   "fieldname": "land",
+   "fieldtype": "Link",
+   "label": "Land",
+   "options": "Country"
+  },
+  {
+   "fieldname": "plz",
+   "fieldtype": "Data",
+   "label": "PLZ"
+  },
+  {
+   "fieldname": "column_break_bwvy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Office",
+   "fieldname": "select_wklm",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Adresstyp",
+   "options": "Billing\nShipping\nOffice\nPersonal\nPlant\nPostal\nShop"
+  },
+  {
+   "default": "0",
+   "fieldname": "ist_versandanschrift",
+   "fieldtype": "Check",
+   "label": "Ist Versandanschrift"
+  },
+  {
+   "fieldname": "kontaktinformation_section",
+   "fieldtype": "Section Break",
+   "label": "Kontaktinformation Firma"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "webseite",
+   "fieldtype": "Data",
+   "label": "Webseite"
+  },
+  {
+   "fieldname": "column_break_ckgt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Hier ist die Zentrale des Leadunternehmens gemeint.",
+   "fieldname": "telefon_zentrale",
+   "fieldtype": "Data",
+   "label": "Telefon Zentrale"
+  },
+  {
+   "fieldname": "column_break_sjyc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "adresse_mutterunternehmen",
+   "fieldtype": "Link",
+   "label": "Adresse Mutterunternehmen",
+   "options": "Address"
+  },
+  {
+   "fieldname": "kontakt_mutterunternehmen",
+   "fieldtype": "Link",
+   "label": "Kontakt Mutterunternehmen",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "firmendaten_section",
+   "fieldtype": "Section Break",
+   "label": "Firmendaten"
+  },
+  {
+   "fieldname": "select_lapl",
+   "fieldtype": "Select",
+   "label": "Anzahl der Mitarbeiter",
+   "options": "1-10\n11-50\n51-200\n201-500\n501-1000\n1000+"
+  },
+  {
+   "fieldname": "wirtschaftsbranche",
+   "fieldtype": "Link",
+   "label": "Wirtschaftsbranche",
+   "options": "Industry Type"
+  },
+  {
+   "fieldname": "zus\u00e4tzliche_informationen_section",
+   "fieldtype": "Section Break",
+   "label": "Zus\u00e4tzliche Informationen"
+  },
+  {
+   "fieldname": "kampagnenname",
+   "fieldtype": "Link",
+   "label": "Kampagnenname",
+   "options": "Campaign"
+  },
+  {
+   "default": "de",
+   "fieldname": "drucksprache",
+   "fieldtype": "Link",
+   "label": "Sprache",
+   "options": "Language"
+  },
+  {
+   "fieldname": "column_break_ppez",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "deaktiviert",
+   "fieldtype": "Check",
+   "label": "Deaktiviert"
+  },
+  {
+   "default": "0",
+   "fieldname": "unsubscribed",
+   "fieldtype": "Check",
+   "label": "Unsubscribed"
+  },
+  {
+   "default": "0",
+   "fieldname": "blog_subscriber",
+   "fieldtype": "Check",
+   "label": "Blog Subscriber"
+  },
+  {
+   "fieldname": "test",
+   "fieldtype": "Data",
+   "label": "TEST"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-18 16:24:53.388951",
+ "modified_by": "Administrator",
+ "module": "Ersteingabe Lead",
+ "name": "Ersteingabe Lead",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
