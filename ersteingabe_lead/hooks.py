@@ -5,6 +5,9 @@ app_description = "Import von Leads soll gleichzeitig Kontakt und Adresse mit er
 app_email = "kontakt@schmidtundtoechter.com"
 app_license = "MIT"
 
+fixtures=["Server Script"]
+#fixtures=["Server Script", "Custom Field"]
+
 # Includes in <head>
 # ------------------
 
