@@ -1,7 +1,7 @@
 import json
 import os
 
-APP_NAME = "your_app"  # Deine App
+APP_NAME = "ersteingabe_lead"  # Deine App
 
 # Verzeichnis mit den Server Scripts
 SCRIPT_DIR = os.path.join(os.getcwd(), APP_NAME, "server_scripts")
@@ -31,8 +31,21 @@ for script_file in os.listdir(SCRIPT_DIR):
         }
         server_scripts.append(script_entry)
 
-# Fixture-File speichern
-with open(FIXTURE_FILE, "w") as f:
-    json.dump(server_scripts, f, indent=2)
+doWrite=False
+# Gehe durch alle script_entrys und füge sie zu existing_data hinzu
+for script_entry in server_scripts:
+    print(f"Server Script: {script_entry['name']}")
+    # Suche nach einem bestehenden Server Script mit dem gleichen Namen
+    existing_script = next((s for s in existing_data if s["name"] == script_entry["name"]), None)
+    print(f"existing_script: {existing_script['name']}")
+    if existing_script:
+        # Ersetze nur den Wert von "script" mit dem neuen Wert
+        existing_script["script"] = script_entry["script"]
+        doWrite=True
+
+if doWrite:
+    # Schreibe die Daten in die JSON-Datei
+    with open(FIXTURE_FILE, "w") as f:
+        json.dump(existing_data, f, indent=4)
 
 print(f"Server Scripts wurden exportiert nach: {FIXTURE_FILE}")

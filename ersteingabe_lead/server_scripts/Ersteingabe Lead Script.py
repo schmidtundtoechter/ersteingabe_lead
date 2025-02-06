@@ -1,6 +1,8 @@
 # Server Script for "Ersteingabe Lead AZ-IT"
 # Trigger: Before Save
 
+# NOCHWAS NEU
+
 # Step 1: Create the 'kompletter_name' based on 'vornahme', 'zweiter_vornahme', 'nachnahme'
 name_parts = []
 
