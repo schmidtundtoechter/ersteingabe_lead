@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if in /workspace/development/frappe-bench/
+if [ $(basename $(pwd)) != "frappe-bench" ]; then
+    echo "Please run this script in /workspace/development/frappe-bench/"
+    exit 1
+fi
+
 # first argument needs to be github - link
 if [ -z "$1" ]
   then

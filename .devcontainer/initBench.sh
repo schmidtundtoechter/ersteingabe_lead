@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Guide-to-Install-Frappe-ERPNext-in-Windows-11-Using-Docker
-# A complete Guide to Install Frappe Bench in Windows 11 Using Docker and install Frappe/ERPNext Application
-
 sudo chown -R frappe:frappe /workspace
 rsync -avP /workspace-local/development/ /workspace/development/
 
@@ -49,7 +46,5 @@ bench get-app --branch version-${ERPNEXT_VERSION} --resolve-deps erpnext
 bench --site d-code.localhost install-app erpnext
 
 echo "### STEP 11 Start Frappe bench"
-bench start
-
-echo "### You can now login with user Administrator and the password you choose when creating the site. Your website will now be accessible at location http://d-code.localhost:8000"
-
+echo "Now go to /workspace/development/frappe-bench/ and run bench start"
+echo "Then open your browser and go to http://d-code.localhost:8000"
