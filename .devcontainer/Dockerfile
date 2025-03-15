@@ -153,9 +153,33 @@ CMD [ \
 FROM erpnext AS dev_erpnext
 
 USER root
+
+# Install necessary packages
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
   sudo dos2unix rsync cron wget ssh
+RUN rm -rf /var/lib/apt/lists/*
+
+# Install docker & gpg
+RUN apt-get update && apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    wget \
+    vim \
+    git \
+    software-properties-common \
+    gnupg-agent && \
+    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bookworm stable" \
+    | tee /etc/apt/sources.list.d/docker.list > /dev/null && \
+    apt-get update && apt-get install -y \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io \
+    docker-buildx-plugin \
+    docker-compose-plugin && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add frappe user to sudoers without password
 RUN echo "frappe ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/frappe

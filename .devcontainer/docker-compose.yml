@@ -51,6 +51,7 @@ services:
     volumes:
       - frappe_docker_volume:/workspace:cached
       - ~/.ssh:/home/frappe/.ssh-mount
+      - /var/run/docker.sock:/var/run/docker.sock
     working_dir: /workspace/development
     ports:
       - 8000-8005:8000-8005

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo chmod 666 /var/run/docker.sock
 sudo chown -R frappe:frappe /workspace
 rsync -avP /workspace-local/development/ /workspace/development/
 
