@@ -146,27 +146,3 @@ CMD [ \
   "--preload", \
   "frappe.app:application" \
 ]
-
-FROM erpnext AS dev_erpnext
-
-USER root
-RUN apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-  sudo dos2unix rsync cron wget
-
-# Add frappe user to sudoers without password
-RUN echo "frappe ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/frappe
-
-# Add scripts
-COPY frappe_docker-installApp.sh /home/frappe/frappe_docker-installApp.sh
-COPY frappe_docker-reinstall.sh /home/frappe/frappe_docker-reinstall.sh
-COPY aliases.sh /home/frappe/aliases.sh
-RUN chown frappe:frappe /home/frappe/frappe_docker-* /home/frappe/aliases.sh
-RUN dos2unix /home/frappe/frappe_docker-* /home/frappe/aliases.sh
-COPY ./development/ /workspace-local/development/
-
-USER frappe
-
-# Add aliases
-RUN echo "alias ll='ls -al'" >> ~/.bashrc
-RUN echo "source /home/frappe/aliases.sh" >> ~/.bashrc
