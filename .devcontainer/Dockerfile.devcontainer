@@ -5,11 +5,14 @@ USER root
 # Install necessary packages
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-  sudo dos2unix rsync cron wget ssh
+  sudo dos2unix rsync cron wget ssh build-essential
 RUN rm -rf /var/lib/apt/lists/*
 
+# Use Docker's built-in TARGETARCH variable
+ARG TARGETARCH
+
 # Install docker & gpg
-RUN apt-get update && apt-get install -y \
+RUN echo "Install docker for arch=${TARGETARCH}" && apt-get update && apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -19,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     gnupg-agent && \
     curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bookworm stable" \
+    echo "deb [arch=${TARGETARCH} signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bookworm stable" \
     | tee /etc/apt/sources.list.d/docker.list > /dev/null && \
     apt-get update && apt-get install -y \
     docker-ce \
